@@ -11,6 +11,36 @@
 * 	Template Style 
 *
 * ======================================================= */
+/* Invitation section styles (8-page SVG sequence) */
+.fh5co-invitation-section {
+  width: 100%;
+  background: #000; /* Section background stays black */
+}
+
+.invitation-page {
+  min-height: 100vh; /* Each SVG takes one full page */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; /* Placeholder ready: can set a bg image later */
+}
+
+/* Placeholder class for a future background image (replace URL later if needed) */
+/* .invitation-page.invitation-bg { background-image: url('../images/invitation/bg-placeholder.jpg'); } */
+.invitation-page.invitation-bg { /* keep as black for now */ }
+
+.invitation-page img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: 100vh; /* Ensure SVG fits within viewport height */
+  object-fit: contain; /* Prevent stretching; keep aspect ratio */
+}
+
 body {
   font-family: "Work Sans", Arial, sans-serif;
   font-weight: 400;
@@ -1811,4 +1841,3 @@ form label {
 }
 
 /*# sourceMappingURL=style.css.map */
-
