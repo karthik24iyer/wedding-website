@@ -61,8 +61,10 @@
 	<body>
 		
 	<div class="fh5co-loader"></div>
-	
-	<div id="page">
+
+	<div class="main-scroll-container">
+		<!-- Page 1: Home -->
+		<div class="scroll-page">
 	<nav class="fh5co-nav" role="navigation">
 		<div class="container">
 			<div class="row">
@@ -104,42 +106,111 @@
 			</div>
 		</div>
 	</header>
+		</div>
+
+		<!-- Pages 2-9: Invitation -->
+		<div class="scroll-page invitation-page invitation-bg">
+			<img src="images/invitation-png/pic1.png" alt="Invitation Page 1">
+		</div>
+		<div class="scroll-page invitation-page invitation-bg">
+			<img src="images/invitation-png/pic2.png" alt="Invitation Page 2">
+		</div>
+		<div class="scroll-page invitation-page invitation-bg">
+			<img src="images/invitation-png/pic3.png" alt="Invitation Page 3">
+		</div>
+		<div class="scroll-page invitation-page invitation-bg">
+			<img src="images/invitation-png/pic4.png" alt="Invitation Page 4">
+		</div>
+		<div class="scroll-page invitation-page invitation-bg">
+			<img src="images/invitation-png/pic5.png" alt="Invitation Page 5">
+		</div>
+		<div class="scroll-page invitation-page invitation-bg">
+			<img src="images/invitation-png/pic6.png" alt="Invitation Page 6">
+		</div>
+		<div class="scroll-page invitation-page invitation-bg">
+			<img src="images/invitation-png/pic7.png" alt="Invitation Page 7">
+		</div>
+		<div class="scroll-page invitation-page invitation-bg">
+			<img src="images/invitation-png/pic8.png" alt="Invitation Page 8">
+		</div>
 
 
 
-	<!-- Invitation Section (between Home and Events) -->
-	<div id="fh5co-invitation" class="fh5co-invitation-section">
-		<!-- No visible section title as requested -->
-		<!-- Each page is a full-viewport panel with black background -->
-		<div class="invitation-page invitation-bg">
-			<img src="images/invitation/1.svg" alt="Invitation Page 1">
+		<!-- Page 10: Gallery -->
+		<div class="scroll-page">
+			<div id="fh5co-gallery" class="fh5co-section-gray">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+							<h2>Gallery</h2>
+						</div>
+					</div>
+					<div class="row row-bottom-padded-md">
+						<div class="col-md-12">
+							<div class="gallery-wrapper">
+								<div class="gallery-scroll-container">
+									<ul id="fh5co-gallery-list">
+									<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/engagement-bg.jpeg);">
+										<a href="images/engagement-bg.jpeg">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+									<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/pic1.jpg);">
+										<a href="images/pic1.jpg">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+									<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/pic2.jpg);">
+										<a href="images/pic2.jpg">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+									<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/pic3.jpg);">
+										<a href="images/pic3.jpg">
+											<div class="case-studies-summary">
+											</div>
+										</a>
+									</li>
+								</ul>
+								</div>
+							</div>
+							<div class="gallery-scroll-indicator">
+								<div class="gallery-indicator-dot active" data-index="0"></div>
+								<div class="gallery-indicator-dot" data-index="1"></div>
+								<div class="gallery-indicator-dot" data-index="2"></div>
+								<div class="gallery-indicator-dot" data-index="3"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="invitation-page invitation-bg">
-			<img src="images/invitation/2.svg" alt="Invitation Page 2">
-		</div>
-		<div class="invitation-page invitation-bg">
-			<img src="images/invitation/3.svg" alt="Invitation Page 3">
-		</div>
-		<div class="invitation-page invitation-bg">
-			<img src="images/invitation/4.svg" alt="Invitation Page 4">
-		</div>
-		<div class="invitation-page invitation-bg">
-			<img src="images/invitation/5.svg" alt="Invitation Page 5">
-		</div>
-		<div class="invitation-page invitation-bg">
-			<img src="images/invitation/6.svg" alt="Invitation Page 6">
-		</div>
-		<div class="invitation-page invitation-bg">
-			<img src="images/invitation/7.svg" alt="Invitation Page 7">
-		</div>
-		<div class="invitation-page invitation-bg">
-			<img src="images/invitation/8.svg" alt="Invitation Page 8">
+
+		<!-- Page 11: Highlights -->
+		<div class="scroll-page">
+			<div id="fh5co-services" class="fh5co-section-gray">
+				<div class="container">
+					<div class="row animate-box">
+						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+							<h2>Highlights</h2>
+						</div>
+					</div>
+					<div class="container animate-box">
+						<div class="fh5co-video fh5co-bg" style="background-image: url(images/img_bg_3.jpg); ">
+							<a href="#" class="popup-vimeo"><i class="icon-video2"></i></a>
+							<div class="overlay"></div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
-
-
-	<div id="fh5co-event" class="fh5co-bg">
+	<!-- Hidden Events section (preserved but hidden) -->
+	<div id="fh5co-event" class="fh5co-bg" style="display: none;">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -295,74 +366,6 @@
 		</div>
 	</div>
 
-
-	<div id="fh5co-gallery" class="fh5co-section-gray">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2>Gallery</h2>
-				</div>
-			</div>
-			<div class="row row-bottom-padded-md">
-				<div class="col-md-12">
-					<ul id="fh5co-gallery-list">
-						
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/engagement-bg.jpeg); "> 
-						<a href="images/engagement-bg.jpeg">
-							<div class="case-studies-summary">
-							</div>
-						</a>
-					</li>
-
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/pic1.jpg); "> 
-						<a href="images/pic1.jpg">
-							<div class="case-studies-summary">
-							</div>
-						</a>
-					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/pic2.jpg); "> 
-						<a href="images/pic2.jpg">
-							<div class="case-studies-summary">
-							</div>
-						</a>
-					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/pic3.jpg); "> 
-						<a href="images/pic3.jpg">
-							<div class="case-studies-summary">
-							</div>
-						</a>
-					</li>
-					
-					</ul>		
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-	<div id="fh5co-services" class="fh5co-section-gray">
-		<div class="container">
-			
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Highlights</h2>
-
-				</div>
-			</div>
-
-
-
-				<div class="container animate-box">
-					<div class="fh5co-video fh5co-bg" style="background-image: url(images/img_bg_3.jpg); ">
-						<a href="#" class="popup-vimeo"><i class="icon-video2"></i></a>
-						<div class="overlay"></div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-	</div>
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
@@ -395,5 +398,40 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 	<center>View Source Code on <a href="https://github.com/shyamjos/wedding-website">GitHub <img src="images/github-logo.png"> </a> </center>
+
+	<script>
+	// Gallery scroll indicator functionality for internal scrolling
+	document.addEventListener('DOMContentLoaded', function() {
+		const galleryContainer = document.querySelector('.gallery-scroll-container');
+		const indicators = document.querySelectorAll('.gallery-indicator-dot');
+		const galleryItems = document.querySelectorAll('#fh5co-gallery-list li');
+
+		if (galleryContainer && indicators.length > 0 && galleryItems.length > 0) {
+			// Each image takes full viewport width (80vw - 8px border)
+			const itemSpacing = window.innerWidth * 0.8 - 8;
+
+			// Update indicators on scroll
+			galleryContainer.addEventListener('scroll', function() {
+				const scrollLeft = galleryContainer.scrollLeft;
+				const currentIndex = Math.round(scrollLeft / itemSpacing);
+
+				indicators.forEach((dot, index) => {
+					if (index === currentIndex) {
+						dot.classList.add('active');
+					} else {
+						dot.classList.remove('active');
+					}
+				});
+			});
+
+			// Click indicators to scroll to item
+			indicators.forEach((dot, index) => {
+				dot.addEventListener('click', function() {
+					galleryContainer.scrollLeft = index * itemSpacing;
+				});
+			});
+		}
+	});
+	</script>
 	</body>
 </html>

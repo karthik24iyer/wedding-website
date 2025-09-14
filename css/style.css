@@ -11,22 +11,11 @@
 * 	Template Style 
 *
 * ======================================================= */
-/* Invitation section styles (8-page SVG sequence) */
-.fh5co-invitation-section {
-  width: 100%;
-  background: #000; /* Section background stays black */
-}
 
 .invitation-page {
-  min-height: 100vh; /* Each SVG takes one full page */
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; /* Placeholder ready: can set a bg image later */
 }
 
 /* Placeholder class for a future background image (replace URL later if needed) */
@@ -35,10 +24,11 @@
 
 .invitation-page img {
   display: block;
-  max-width: 100%;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
   height: auto;
-  max-height: 100vh; /* Ensure SVG fits within viewport height */
-  object-fit: contain; /* Prevent stretching; keep aspect ratio */
+  object-fit: contain;
 }
 
 body {
@@ -48,6 +38,38 @@ body {
   line-height: 1.7;
   color: #828282;
   background: #fff;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Main horizontal scrolling container */
+.main-scroll-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Each page takes full viewport */
+.scroll-page {
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+/* Only home page (first scroll-page) gets background */
+.scroll-page:first-child {
+  background-image: url(../images/bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 #page {
@@ -257,14 +279,11 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-counter,
 #fh5co-event,
 .fh5co-bg {
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
+  background: transparent;
   position: relative;
 }
 
 .fh5co-bg {
-  background-position: center center;
   width: 100%;
   float: left;
   position: relative;
@@ -328,11 +347,15 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .fh5co-cover {
-  height: 1000px;
+  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  width: 100%;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .fh5co-cover .overlay {
   z-index: 0;
@@ -352,11 +375,13 @@ h1, h2, h3, h4, h5, h6, figure {
     height: 100vh;
   }
 }
-.fh5co-cover .display-t,
-.fh5co-cover .display-tc {
-  height: 900px;
-  display: table;
+.fh5co-cover .display-t {
   width: 100%;
+  text-align: center;
+}
+.fh5co-cover .display-tc {
+  width: 100%;
+  text-align: center;
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover .display-t,
@@ -666,37 +691,82 @@ h1, h2, h3, h4, h5, h6, figure {
     right: auto;
   }
 }
-#fh5co-gallery-list {
-  flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
+/* Fixed gallery viewport with black frame */
+.gallery-wrapper {
+  width: 80vw;
+  height: 60vh;
+  margin: 0 auto;
+  border: 4px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
   position: relative;
-  float: left;
+  background: #f5f5f5;
+}
+
+/* Images scroll horizontally inside the fixed viewport */
+.gallery-scroll-container {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  display: flex;
+  align-items: center;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.gallery-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+#fh5co-gallery-list {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
   padding: 0;
   margin: 0;
-  width: 100%;
+  width: max-content;
+  gap: 0;
+}
+
+/* Gallery scroll indicator */
+.gallery-scroll-indicator {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  gap: 10px;
+}
+
+.gallery-indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.gallery-indicator-dot.active {
+  background-color: #646464;
 }
 #fh5co-gallery-list li {
   display: block;
   padding: 0;
-  margin: 0 0 10px 1%;
+  margin: 0;
   list-style: none;
-  min-height: 500px;
+  min-width: calc(80vw - 8px);
+  width: calc(80vw - 8px);
+  height: calc(60vh - 8px);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  float: left;
-  clear: left;
+  flex-shrink: 0;
   position: relative;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -ms-border-radius: 7px;
-  border-radius: 7px;
+  scroll-snap-align: center;
+  border-radius: 5px;
 }
 @media screen and (max-width: 480px) {
   #fh5co-gallery-list li {
@@ -711,24 +781,10 @@ h1, h2, h3, h4, h5, h6, figure {
   display: block;
 }
 #fh5co-gallery-list li a:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  content: "";
-  z-index: 80;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -ms-border-radius: 7px;
-  border-radius: 7px;
-  background: rgba(0, 0, 0, 0.2);
+  display: none;
 }
 #fh5co-gallery-list li a:hover:before {
-  background: rgba(0, 0, 0, 0.5);
+  display: none;
 }
 #fh5co-gallery-list li a .case-studies-summary {
   width: auto;
@@ -861,9 +917,8 @@ form label {
 #fh5co-header .display-tc,
 #fh5co-counter .display-tc,
 .fh5co-cover .display-tc {
-  display: table-cell !important;
-  vertical-align: middle;
-  padding-top: 130px;
+  padding: 0;
+  margin: 0;
 }
 #fh5co-header .display-tc h1, #fh5co-header .display-tc h2,
 #fh5co-counter .display-tc h1,
@@ -1007,7 +1062,7 @@ form label {
 }
 
 .fh5co-section-gray {
-  background: rgba(0, 0, 0, 0.04);
+  background: transparent;
 }
 
 .couple-wrap {
