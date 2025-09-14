@@ -108,30 +108,45 @@
 	</header>
 		</div>
 
-		<!-- Pages 2-9: Invitation -->
-		<div class="scroll-page invitation-page invitation-bg">
-			<img src="images/invitation-png/pic1.png" alt="Invitation Page 1">
-		</div>
-		<div class="scroll-page invitation-page invitation-bg">
-			<img src="images/invitation-png/pic2.png" alt="Invitation Page 2">
-		</div>
-		<div class="scroll-page invitation-page invitation-bg">
-			<img src="images/invitation-png/pic3.png" alt="Invitation Page 3">
-		</div>
-		<div class="scroll-page invitation-page invitation-bg">
-			<img src="images/invitation-png/pic4.png" alt="Invitation Page 4">
-		</div>
-		<div class="scroll-page invitation-page invitation-bg">
-			<img src="images/invitation-png/pic5.png" alt="Invitation Page 5">
-		</div>
-		<div class="scroll-page invitation-page invitation-bg">
-			<img src="images/invitation-png/pic6.png" alt="Invitation Page 6">
-		</div>
-		<div class="scroll-page invitation-page invitation-bg">
-			<img src="images/invitation-png/pic7.png" alt="Invitation Page 7">
-		</div>
-		<div class="scroll-page invitation-page invitation-bg">
-			<img src="images/invitation-png/pic8.png" alt="Invitation Page 8">
+		<!-- Invitation Pages-->
+		<div class="scroll-page">
+			<div id="fh5co-invitation" class="fh5co-section-gray">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+							<h2>Invitation</h2>
+						</div>
+					</div>
+					<div class="row row-bottom-padded-md">
+						<div class="col-md-12">
+							<div class="gallery-wrapper">
+								<div class="gallery-scroll-container" id="invitation-scroll">
+									<ul id="fh5co-invitation-list">
+										<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/invitation-png/pic1.png);"></li>
+										<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/invitation-png/pic2.png);"></li>
+										<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/invitation-png/pic3.png);"></li>
+										<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/invitation-png/pic4.png);"></li>
+										<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/invitation-png/pic5.png);"></li>
+										<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/invitation-png/pic6.png);"></li>
+										<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/invitation-png/pic7.png);"></li>
+										<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/invitation-png/pic8.png);"></li>
+									</ul>
+								</div>
+							</div>
+							<div class="gallery-scroll-indicator" id="invitation-indicator">
+								<div class="gallery-indicator-dot active" data-index="0"></div>
+								<div class="gallery-indicator-dot" data-index="1"></div>
+								<div class="gallery-indicator-dot" data-index="2"></div>
+								<div class="gallery-indicator-dot" data-index="3"></div>
+								<div class="gallery-indicator-dot" data-index="4"></div>
+								<div class="gallery-indicator-dot" data-index="5"></div>
+								<div class="gallery-indicator-dot" data-index="6"></div>
+								<div class="gallery-indicator-dot" data-index="7"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 
@@ -428,6 +443,35 @@
 			indicators.forEach((dot, index) => {
 				dot.addEventListener('click', function() {
 					galleryContainer.scrollLeft = index * itemSpacing;
+				});
+			});
+		}
+
+		// Invitation scroll indicator functionality (same as Gallery)
+		const invitationContainer = document.getElementById('invitation-scroll');
+		const invitationIndicators = document.querySelectorAll('#invitation-indicator .gallery-indicator-dot');
+		const invitationItems = document.querySelectorAll('#fh5co-invitation-list li');
+
+		if (invitationContainer && invitationIndicators.length > 0 && invitationItems.length > 0) {
+			// Invitation frame is 82vw wide inside a 4px border
+			const itemSpacingInvite = window.innerWidth * 0.82 - 8;
+
+			invitationContainer.addEventListener('scroll', function() {
+				const scrollLeft = invitationContainer.scrollLeft;
+				const currentIndex = Math.round(scrollLeft / itemSpacingInvite);
+
+				invitationIndicators.forEach((dot, index) => {
+					if (index === currentIndex) {
+						dot.classList.add('active');
+					} else {
+						dot.classList.remove('active');
+					}
+				});
+			});
+
+			invitationIndicators.forEach((dot, index) => {
+				dot.addEventListener('click', function() {
+					invitationContainer.scrollLeft = index * itemSpacingInvite;
 				});
 			});
 		}

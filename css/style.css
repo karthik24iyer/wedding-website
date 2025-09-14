@@ -732,6 +732,40 @@ h1, h2, h3, h4, h5, h6, figure {
   gap: 0;
 }
 
+/* Invitation list uses the same horizontal scrolling layout */
+#fh5co-invitation-list {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  width: max-content;
+  gap: 0;
+}
+
+/* Make invitation frame larger and spaced from top */
+#fh5co-invitation .gallery-wrapper {
+  width: 82vw;
+  height: 66vh;
+  margin: 0 auto; /* container provides vertical offset */
+}
+
+/* Match invitation items to larger frame */
+#fh5co-invitation-list li {
+  min-width: calc(82vw - 8px);
+  width: calc(82vw - 8px);
+  height: calc(66vh - 8px);
+  background-size: 105% !important; /* slightly zoom images inside the frame */
+  background-position: center center;
+}
+
+/* Ensure Invitation, Gallery, Highlights sit at same vertical level */
+#fh5co-invitation .container,
+#fh5co-gallery .container,
+#fh5co-services .container {
+  padding-top: 8vh;
+}
+
 /* Gallery scroll indicator */
 .gallery-scroll-indicator {
   display: flex;
@@ -752,21 +786,26 @@ h1, h2, h3, h4, h5, h6, figure {
 .gallery-indicator-dot.active {
   background-color: #646464;
 }
-#fh5co-gallery-list li {
+#fh5co-gallery-list li,
+#fh5co-invitation-list li {
   display: block;
   padding: 0;
   margin: 0;
   list-style: none;
-  min-width: calc(80vw - 8px);
-  width: calc(80vw - 8px);
-  height: calc(60vh - 8px);
   background-position: center center;
-  background-size: cover;
   background-repeat: no-repeat;
   flex-shrink: 0;
   position: relative;
   scroll-snap-align: center;
   border-radius: 5px;
+}
+
+/* Gallery items sized to gallery frame */
+#fh5co-gallery-list li {
+  min-width: calc(80vw - 8px);
+  width: calc(80vw - 8px);
+  height: calc(60vh - 8px);
+  background-size: cover;
 }
 @media screen and (max-width: 480px) {
   #fh5co-gallery-list li {
