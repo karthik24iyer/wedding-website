@@ -769,13 +769,14 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-invitation .container,
 #fh5co-gallery .container,
 #fh5co-services .container {
-  padding-top: 8vh;
+  padding-top: 4vh;
 }
 /* Normalize heading spacing to keep consistent vertical alignment */
 #fh5co-invitation .fh5co-heading,
 #fh5co-gallery .fh5co-heading,
 #fh5co-services .fh5co-heading {
   margin-top: 0;
+  margin-bottom: 3em;
 }
 
 /* Gallery scroll indicator */
