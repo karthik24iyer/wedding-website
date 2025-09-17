@@ -163,7 +163,7 @@
 					<div class="row row-bottom-padded-md">
 						<div class="col-md-12">
 							<div class="gallery-wrapper">
-								<div class="gallery-scroll-container">
+								<div class="gallery-scroll-container" id="gallery-scroll">
 									<ul id="fh5co-gallery-list">
 									<li class="animate-box" data-animate-effect="fadeIn" style="background-image: url(images/engagement-bg.jpeg);">
 										<a href="images/engagement-bg.jpeg">
@@ -192,7 +192,7 @@
 								</ul>
 								</div>
 							</div>
-							<div class="gallery-scroll-indicator">
+							<div class="gallery-scroll-indicator" id="gallery-indicator">
 								<div class="gallery-indicator-dot active" data-index="0"></div>
 								<div class="gallery-indicator-dot" data-index="1"></div>
 								<div class="gallery-indicator-dot" data-index="2"></div>
@@ -214,7 +214,7 @@
 						</div>
 					</div>
 					<div class="container animate-box">
-						<div class="fh5co-video fh5co-bg" style="background-image: url(images/img_bg_3.jpg); ">
+						<div class="fh5co-video fh5co-bg" style="background-image: url(images/bg.jpg); ">
 							<a href="#" class="popup-vimeo"><i class="icon-video2"></i></a>
 							<div class="overlay"></div>
 						</div>
@@ -417,13 +417,13 @@
 	<script>
 	// Gallery scroll indicator functionality for internal scrolling
 	document.addEventListener('DOMContentLoaded', function() {
-		const galleryContainer = document.querySelector('.gallery-scroll-container');
-		const indicators = document.querySelectorAll('.gallery-indicator-dot');
+		const galleryContainer = document.querySelector('#gallery-scroll');
+		const indicators = document.querySelectorAll('#gallery-indicator .gallery-indicator-dot');
 		const galleryItems = document.querySelectorAll('#fh5co-gallery-list li');
 
 		if (galleryContainer && indicators.length > 0 && galleryItems.length > 0) {
-			// Each image takes full viewport width (80vw - 8px border)
-			const itemSpacing = window.innerWidth * 0.8 - 8;
+			// Each image takes full viewport width (82vw - 8px border) to match Invitation
+			const itemSpacing = window.innerWidth * 0.82 - 8;
 
 			// Update indicators on scroll
 			galleryContainer.addEventListener('scroll', function() {

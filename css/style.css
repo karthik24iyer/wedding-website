@@ -759,11 +759,23 @@ h1, h2, h3, h4, h5, h6, figure {
   background-position: center center;
 }
 
+/* Make Gallery frame match Invitation dimensions */
+#fh5co-gallery .gallery-wrapper {
+  width: 82vw;
+  height: 66vh;
+}
+
 /* Ensure Invitation, Gallery, Highlights sit at same vertical level */
 #fh5co-invitation .container,
 #fh5co-gallery .container,
 #fh5co-services .container {
   padding-top: 8vh;
+}
+/* Normalize heading spacing to keep consistent vertical alignment */
+#fh5co-invitation .fh5co-heading,
+#fh5co-gallery .fh5co-heading,
+#fh5co-services .fh5co-heading {
+  margin-top: 0;
 }
 
 /* Gallery scroll indicator */
@@ -800,11 +812,11 @@ h1, h2, h3, h4, h5, h6, figure {
   border-radius: 5px;
 }
 
-/* Gallery items sized to gallery frame */
+/* Gallery items sized to gallery frame (match Invitation) */
 #fh5co-gallery-list li {
-  min-width: calc(80vw - 8px);
-  width: calc(80vw - 8px);
-  height: calc(60vh - 8px);
+  min-width: calc(82vw - 8px);
+  width: calc(82vw - 8px);
+  height: calc(66vh - 8px);
   background-size: cover;
 }
 @media screen and (max-width: 480px) {
@@ -1098,6 +1110,12 @@ form label {
   .fh5co-section {
     padding: 3em 0;
   }
+}
+
+/* Remove extra top padding so Gallery & Highlights align with Invitation */
+#fh5co-gallery,
+#fh5co-services {
+  padding-top: 0 !important;
 }
 
 .fh5co-section-gray {
