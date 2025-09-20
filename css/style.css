@@ -75,6 +75,25 @@ html, body {
   overflow: hidden;
 }
 
+/* Add overlay to match homepage styling */
+.scroll-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(147, 147, 147, 0.5);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Ensure content appears above overlay */
+.scroll-page > * {
+  position: relative;
+  z-index: 2;
+}
+
 /* Active page is visible */
 .scroll-page.active {
   opacity: 1;
