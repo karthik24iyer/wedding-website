@@ -410,8 +410,75 @@
 	<center>View Source Code on <a href="https://github.com/shyamjos/wedding-website">GitHub <img src="images/github-logo.png"> </a> </center>
 
 	<script>
-	// Gallery scroll indicator functionality for internal scrolling
+	// Bulletproof page fade transition system
+	let currentPage = 0;
+	let isTransitioning = false;
+	const totalPages = 4;
+
 	document.addEventListener('DOMContentLoaded', function() {
+		// Initialize first page as visible
+		const pages = document.querySelectorAll('.scroll-page');
+		if (pages.length > 0) {
+			pages[0].classList.add('active');
+		}
+
+		// Immediate scroll prevention with page transitions
+		document.addEventListener('wheel', function(e) {
+			// Immediately prevent any scroll movement
+			e.preventDefault();
+
+			if (isTransitioning) return;
+
+			const direction = e.deltaY > 0 ? 1 : -1;
+			const newPage = currentPage + direction;
+
+			if (newPage >= 0 && newPage < totalPages) {
+				isTransitioning = true;
+
+				// Instant page switching
+				pages[currentPage].classList.remove('active');
+				currentPage = newPage;
+				pages[currentPage].classList.add('active');
+
+				// Reset transition lock after fade completes
+				setTimeout(() => {
+					isTransitioning = false;
+				}, 1500);
+			}
+		}, { passive: false });
+
+		// Touch support with immediate prevention
+		let touchStartY = 0;
+		document.addEventListener('touchstart', function(e) {
+			touchStartY = e.touches[0].clientY;
+		}, { passive: false });
+
+		document.addEventListener('touchmove', function(e) {
+			e.preventDefault();
+
+			if (isTransitioning) return;
+
+			const touchEndY = e.touches[0].clientY;
+			const deltaY = touchStartY - touchEndY;
+
+			if (Math.abs(deltaY) > 50) {
+				const direction = deltaY > 0 ? 1 : -1;
+				const newPage = currentPage + direction;
+
+				if (newPage >= 0 && newPage < totalPages) {
+					isTransitioning = true;
+					pages[currentPage].classList.remove('active');
+					currentPage = newPage;
+					pages[currentPage].classList.add('active');
+					setTimeout(() => {
+						isTransitioning = false;
+					}, 1500);
+				}
+				touchStartY = touchEndY;
+			}
+		}, { passive: false });
+
+	// Gallery scroll indicator functionality for internal scrolling
 		const galleryContainer = document.querySelector('#gallery-scroll');
 		const indicators = document.querySelectorAll('#gallery-indicator .gallery-indicator-dot');
 		const galleryItems = document.querySelectorAll('#fh5co-gallery-list li');
