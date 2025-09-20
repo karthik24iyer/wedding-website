@@ -216,7 +216,11 @@
 
 	// Parallax
 	var parallax = function() {
-		$(window).stellar();
+		$(window).stellar({
+			horizontalOffset: 0,
+			horizontalScrolling: false,
+			positionProperty: 'position'
+		});
 	};
 
 	
