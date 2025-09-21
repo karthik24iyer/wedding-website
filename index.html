@@ -422,9 +422,16 @@
 			pages[0].classList.add('active');
 		}
 
-		// Immediate scroll prevention with page transitions
+		const isInsideHorizontalScroller = (element) => {
+			return element && element.closest('.gallery-scroll-container');
+		};
+
+		// Immediate scroll prevention with page transitions unless over horizontal scrollers
 		document.addEventListener('wheel', function(e) {
-			// Immediately prevent any scroll movement
+			if (isInsideHorizontalScroller(e.target)) {
+				return; // allow native horizontal scrolling
+			}
+			// Immediately prevent any vertical scroll movement
 			e.preventDefault();
 
 			if (isTransitioning) return;
@@ -449,11 +456,18 @@
 
 		// Touch support with immediate prevention
 		let touchStartY = 0;
+		let touchInsideHorizontal = false;
 		document.addEventListener('touchstart', function(e) {
-			touchStartY = e.touches[0].clientY;
+			touchInsideHorizontal = Boolean(isInsideHorizontalScroller(e.target));
+			if (!touchInsideHorizontal) {
+				touchStartY = e.touches[0].clientY;
+			}
 		}, { passive: false });
 
 		document.addEventListener('touchmove', function(e) {
+			if (touchInsideHorizontal) {
+				return; // allow horizontal swipe inside scrollers
+			}
 			e.preventDefault();
 
 			if (isTransitioning) return;
@@ -477,6 +491,10 @@
 				touchStartY = touchEndY;
 			}
 		}, { passive: false });
+
+		document.addEventListener('touchend', function() {
+			touchInsideHorizontal = false;
+		});
 
 	// Gallery scroll indicator functionality for internal scrolling
 		const galleryContainer = document.querySelector('#gallery-scroll');
