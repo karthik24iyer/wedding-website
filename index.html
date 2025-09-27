@@ -532,9 +532,9 @@
 		const invitationIndicators = document.querySelectorAll('#invitation-indicator .gallery-indicator-dot');
 		const invitationItems = document.querySelectorAll('#fh5co-invitation-list li');
 
-		if (invitationContainer && invitationIndicators.length > 0 && invitationItems.length > 0) {
-			// Invitation frame is 82vw wide inside a 4px border
-			const itemSpacingInvite = window.innerWidth * 0.82 - 8;
+			if (invitationContainer && invitationIndicators.length > 0 && invitationItems.length > 0) {
+				// Invitation frame is 82vw wide inside a 4px border
+				const itemSpacingInvite = window.innerWidth * 0.82 - 8;
 
 			invitationContainer.addEventListener('scroll', function() {
 				const scrollLeft = invitationContainer.scrollLeft;

@@ -773,20 +773,25 @@ h1, h2, h3, h4, h5, h6, figure {
   gap: 0;
 }
 
-/* Make invitation frame larger and spaced from top */
+/* Invitation frame matches gallery frame sizing */
 #fh5co-invitation .gallery-wrapper {
   width: 82vw;
   height: 66vh;
-  margin: 0 auto; /* container provides vertical offset */
+  margin: 0 auto;
 }
 
-/* Match invitation items to larger frame */
+/* Invitation items sized to frame like gallery */
+#fh5co-invitation-list {
+  align-items: center;
+}
+
 #fh5co-invitation-list li {
   min-width: calc(82vw - 8px);
   width: calc(82vw - 8px);
   height: calc(66vh - 8px);
-  background-size: 105% !important; /* slightly zoom images inside the frame */
-  background-position: center center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Make Gallery frame match Invitation dimensions */
