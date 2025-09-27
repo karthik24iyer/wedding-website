@@ -775,8 +775,8 @@ h1, h2, h3, h4, h5, h6, figure {
 
 /* Invitation frame matches gallery frame sizing */
 #fh5co-invitation .gallery-wrapper {
-  width: 82vw;
-  height: 66vh;
+  width: 90vw;
+  height: 70vh;
   margin: 0 auto;
 }
 
@@ -786,9 +786,9 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-invitation-list li {
-  min-width: calc(82vw - 8px);
-  width: calc(82vw - 8px);
-  height: calc(66vh - 8px);
+  min-width: calc(90vw - 7px);
+  width: calc(90vw - 7px);
+  height: calc(70vh - 7px);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -804,14 +804,14 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-invitation .container,
 #fh5co-gallery .container,
 #fh5co-services .container {
-  padding-top: 4vh;
+  padding-top: 2vh;
 }
 /* Normalize heading spacing to keep consistent vertical alignment */
 #fh5co-invitation .fh5co-heading,
 #fh5co-gallery .fh5co-heading,
 #fh5co-services .fh5co-heading {
   margin-top: 0;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 
 /* Gallery scroll indicator */

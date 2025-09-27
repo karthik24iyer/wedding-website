@@ -503,7 +503,7 @@
 
 		if (galleryContainer && indicators.length > 0 && galleryItems.length > 0) {
 			// Each image takes full viewport width (82vw - 8px border) to match Invitation
-			const itemSpacing = window.innerWidth * 0.82 - 8;
+			const itemSpacing = window.innerWidth * 0.9 - 7;
 
 			// Update indicators on scroll
 			galleryContainer.addEventListener('scroll', function() {
@@ -534,7 +534,7 @@
 
 			if (invitationContainer && invitationIndicators.length > 0 && invitationItems.length > 0) {
 				// Invitation frame is 82vw wide inside a 4px border
-				const itemSpacingInvite = window.innerWidth * 0.82 - 8;
+				const itemSpacingInvite = window.innerWidth * 0.90 - 7;
 
 			invitationContainer.addEventListener('scroll', function() {
 				const scrollLeft = invitationContainer.scrollLeft;
